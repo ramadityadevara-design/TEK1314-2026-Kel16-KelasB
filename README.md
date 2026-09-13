@@ -1,3 +1,6 @@
+# TEK1314-2026-Kel16-KelasB
+Kelompok 16 Siber Security TEK61-B
+
 ## Skenario Proyek - Kelompok 16
 
 Proyek ini mensimulasikan skenario serangan terhadap **Web/Database Server** dalam lingkungan lab yang terisolasi (subnet `192.168.16.0/24`). Kelompok terdiri dari tiga peran:
