@@ -4,7 +4,7 @@
 
 | Hostname | IP Address | OS Direncanakan | Keterangan |
 |---|---|---|---|
-| Target Server (Korban) | 192.168.16.5 | Metasploitable 2 | Berisi service dengan celah keamanan default (FTP, Samba, MySQL, dsb.) untuk didemonstrasikan Red Team |
+| Target Server (Korban) | 192.168.16.5 | Ubuntu Server | Berisi service dengan celah keamanan untuk didemonstrasikan Red Team |
 | Attacker Node | 192.168.16.100 | Kali Linux | Digunakan Red Team untuk scanning & exploitation |
 | Monitoring Node | 192.168.16.200 | Security Onion | Diposisikan agar dapat memantau seluruh trafik di segmen 192.168.16.0/24 |
 
