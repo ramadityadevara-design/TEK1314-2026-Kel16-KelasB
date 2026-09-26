@@ -11,8 +11,8 @@
 | Node | Hostname | IP Address | OS |
 |---|---|---|---|
 | Target Server | SRV-WEB-KEL16B | 192.168.16.5 | Ubuntu Server + web app rentan (DVWA) |
-| Attacker Node | ATTACKER-KEL16B | 192.168.16.105 | Kali Linux |
-| Monitoring Node | MONITORING-KEL16B | 192.168.16.205 | Security Onion |
+| Attacker Node | ATTACKER-KEL16B | 192.168.16.100 | Kali Linux |
+| Monitoring Node | MONITORING-KEL16B | 192.168.16.200 | Security Onion |
 
 > Referensi topologi lengkap: lihat `docs/design/topology.png` dan `docs/design/ip_plan.md`
 
