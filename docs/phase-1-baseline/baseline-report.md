@@ -28,7 +28,7 @@
 
 ```
 # Contoh output: sudo ufw status verbose
-![alt text](image.png)
+![alt text](image-4.png)
 ```
 
 **Alasan:** (isi — misal: membatasi permukaan serangan hanya pada service yang benar-benar dibutuhkan skenario)
@@ -46,11 +46,11 @@
 
 
 ```
-![alt text](image-2.png)
+![alt text](image-5.png)
 ```
 
 ```
-![alt text](image-1.png)
+![alt text](image-6.png)
 ```
 
 ---
