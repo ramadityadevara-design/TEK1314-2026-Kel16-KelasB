@@ -28,7 +28,7 @@
 
 ```
 # Contoh output: sudo ufw status verbose
-[TEMPEL SCREENSHOT / OUTPUT DI SINI]
+![alt text](image.png)
 ```
 
 **Alasan:** (isi — misal: membatasi permukaan serangan hanya pada service yang benar-benar dibutuhkan skenario)
@@ -44,8 +44,13 @@
 
 **Bukti (screenshot/output):**
 
+
 ```
-[TEMPEL OUTPUT DI SINI, misal: cat /etc/ufw/user.rules]
+![alt text](image-2.png)
+```
+
+```
+![alt text](image-1.png)
 ```
 
 ---
@@ -60,6 +65,7 @@
 3. Verifikasi log menunjukkan aktivitas ICMP dengan timestamp, IP asal, dan IP tujuan yang sesuai
 
 **Bukti Screenshot:**
+![alt text](image-3.png)
 
 `![Dashboard Squert - ICMP Log](./assets/squert-icmp-log.png)`
 
