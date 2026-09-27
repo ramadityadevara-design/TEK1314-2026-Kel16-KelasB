@@ -1,16 +1,24 @@
 # Logbook Proyek PBL - Kelompok 16
 
-| Minggu | Tanggal | Anggota | Aktivitas | Peran |
-|---|---|---|---|---|
-| 4 | (isi) | (isi) | Merancang topologi jaringan & skema IP address | Blue Team |
-| 4 | (isi) | (isi) | Riset port & celah keamanan untuk skenario web server | Red Team |
-| 4 | (isi) | (isi) | Koordinasi finalisasi desain & upload ke GitHub | Lead |
-| 5 | (isi) | (isi) | Setup VM (Ubuntu Server, Kali Linux, Security Onion) | Semua |
-| 5 | (isi) | (isi) | Instalasi & konfigurasi awal Security Onion, uji logging ICMP | Blue Team |
-| 6 | (isi) | (isi) | Konfigurasi firewall (UFW) & hardening service di Target Server | Blue Team |
-| 6 | (isi) | (isi) | Setup user non-root & update security patch | Blue Team |
-| 7 | (isi) | (isi) | Verifikasi logging Security Onion + screenshot bukti | Blue Team |
-| 7 | (isi) | (isi) | Penyusunan baseline-report.md | Lead + Blue Team |
-| 7 | (isi) | (isi) | Persiapan materi demo (walkthrough hardening & logging) | Semua |
+**Mata Kuliah:** TEK1314 Keamanan Siber
 
-> Update tabel ini setiap minggu. Tambahkan baris baru sesuai aktivitas nyata masing-masing anggota.
+**Skenario:** Simulasi serangan terhadap web server (target: aplikasi DVWA) dalam jaringan tertutup, dengan Kali Linux sebagai attacker dan Security Onion sebagai node monitoring.
+
+---
+
+## Minggu 3 — Perancangan Awal
+Tim menyusun topologi jaringan yang terdiri dari tiga node utama: attacker, target, dan monitoring. Alokasi IP ditetapkan menggunakan subnet `192.168.16.0/24`. Untuk target server, disepakati penggunaan Ubuntu Server dengan DVWA sebagai aplikasi web yang sengaja dibuat rentan.
+
+## Minggu 5 — Setup Monitoring
+Security Onion di-install dan dikonfigurasi pada node monitoring (`192.168.16.200`). Setelah instalasi selesai, dilakukan pengujian sederhana dengan mengirim ping dari attacker (`192.168.16.100`) menuju target (`192.168.16.5`) untuk memastikan trafik ICMP terekam dengan benar di Sguil/Squert.
+
+## Minggu 6 — Hardening Target Server
+Fokus minggu ini ada di pengamanan target server:
+- Firewall UFW diaktifkan dengan kebijakan default menolak koneksi masuk; hanya port 22 (SSH, akses dibatasi) dan port 80 (HTTP untuk web app) yang dibuka.
+- Beberapa service bawaan yang tidak dibutuhkan skenario dinonaktifkan.
+- Dibuat akun non-root untuk keperluan administrasi sehari-hari, sehingga login root langsung tidak digunakan.
+- Sistem diperbarui melalui `apt update && apt upgrade`.
+- Hostname target diset menjadi `SRV-WEB-KEL16B` mengikuti konvensi penamaan kelompok.
+
+## Minggu 7 — Finalisasi & Persiapan Demo
+Baseline report dirampungkan di `docs/phase-1-baseline/baseline-report.md`, mencakup dokumentasi topologi, hasil hardening, dan bukti verifikasi logging. Tim juga menyusun alur presentasi demo: review topologi, walkthrough konfigurasi hardening, serta demonstrasi logging secara langsung.
