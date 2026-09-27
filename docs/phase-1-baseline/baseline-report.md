@@ -26,10 +26,7 @@
 - Port yang dibuka: `22/tcp` (SSH, dibatasi hanya dari IP Attacker/Admin), `80/tcp` (HTTP, untuk web app)
 - Port lain: ditutup
 
-```
-# Contoh output: sudo ufw status verbose
 ![alt text](image-4.png)
-```
 
 **Alasan:** (isi — misal: membatasi permukaan serangan hanya pada service yang benar-benar dibutuhkan skenario)
 
@@ -44,14 +41,9 @@
 
 **Bukti (screenshot/output):**
 
-
-```
 ![alt text](image-5.png)
-```
 
-```
 ![alt text](image-6.png)
-```
 
 ---
 
