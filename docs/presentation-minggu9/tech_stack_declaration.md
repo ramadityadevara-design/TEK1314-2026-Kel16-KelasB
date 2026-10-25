@@ -7,7 +7,7 @@ Dokumen ini memetakan teknologi backend **asli** proyek IoT kelompok (**Bilichec
 |---|---|---|
 | Sistem Operasi backend | Firebase (managed backend/cloud; OS dikelola penyedia) | Ubuntu Server 24.04.5 LTS |
 | Database/penyimpanan data | Firebase | MySQL 8.0.46 |
-| Protokol komunikasi sensor | HTTP REST HTTP ke backend Flask pada port 5000; komunikasi sensor fisik belum dibangun pada simulasi ini |
+| Protokol komunikasi sensor | HTTP REST | HTTP ke backend Flask pada port 5000 |
 | Dashboard/monitoring | Aplikasi Flutter menggunakan bahasa Dart | Dashboard web simulasi menggunakan Flask dan browser |
 
 ## Catatan Pembangunan Simulasi
