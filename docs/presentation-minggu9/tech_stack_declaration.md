@@ -17,6 +17,3 @@ Dokumen ini memetakan teknologi backend **asli** proyek IoT kelompok (**Bilichec
 - Seluruh kredensial & data pada Target Node adalah dummy, dibuat khusus untuk simulasi (lihat `docs/redteam/attack_plan.md` dan `docs/blueteam/hardening_checklist.md`).
 - Risiko simulasi ini nol terhadap deliverable ke Mitra karena tidak ada koneksi apa pun antara Target Node dan sistem Firebase/IoT asli yang sedang berjalan.
 
-## Status
-
-Deklarasi ini final per Minggu ke-9 dan menjadi acuan untuk seluruh dokumentasi Fase 2 (hardening checklist, attack plan, purple team log).
