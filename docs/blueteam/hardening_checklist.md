@@ -1,26 +1,28 @@
 # Hardening Checklist — Target Node (`SRV-WEB-KEL16B`, 192.168.16.5)
 Sesuai Bagian VIII, Panduan PBL Pertemuan ke-9. Minimal 8 kontrol, tersebar di 3 kategori (min. 2/kategori).
 
-Status: **Selesai** / **Sebagian** / **Belum**. Bukti before/after disimpan di `docs/blueteam/evidence/`.
+Status: **Selesai** / **Sebagian** / **Belum**. Bukti before/after disimpan di `docs/blueteam/evidence/` — lihat `evidence/README.md` untuk panduan penamaan file.
+
+> Kolom "Bukti" di bawah berisi link gambar otomatis. Selama file screenshot sudah ditaruh di `docs/blueteam/evidence/` dengan nama yang persis, gambarnya akan langsung tampil saat halaman ini dibuka di GitHub — tidak perlu edit file ini lagi setelah foto di-upload.
 
 ## A. Access & Authentication
 
-| Kontrol | Status | Bukti |
-|---|---|---|
-| Nonaktifkan login root langsung via SSH | Belum | — |
-| SSH key-based auth (disable password auth) | Belum | — |
-| Ganti port default SSH | Belum | — |
-| fail2ban / rate-limit percobaan login | Belum | — |
-| MFA pada dashboard monitoring | Belum (tidak diterapkan — dashboard Flask belum ada fitur MFA) | — |
+| Kontrol | Status | Bukti Before | Bukti After |
+|---|---|---|---|
+| Nonaktifkan login root langsung via SSH | Belum | ![before](evidence/a1-rootlogin-before.png) | ![after](evidence/a1-rootlogin-after.png) |
+| SSH key-based auth (disable password auth) | Belum | ![before](evidence/a2-passwordauth-before.png) | ![after](evidence/a2-passwordauth-after.png) |
+| Ganti port default SSH | Belum | ![before](evidence/a3-sshport-before.png) | ![after](evidence/a3-sshport-after.png) |
+| fail2ban / rate-limit percobaan login | Belum | ![before](evidence/a4-fail2ban-before.png) | ![after](evidence/a4-fail2ban-after.png) |
+| MFA pada dashboard monitoring | Belum (tidak diterapkan — dashboard Flask belum ada fitur MFA) | — | — |
 
 ## B. Service & Attack Surface
 
-| Kontrol | Status | Bukti |
-|---|---|---|
-| Nonaktifkan service/port yang tidak dipakai | Sebagian | Perlu audit ulang service default Ubuntu |
-| Firewall (UFW) whitelist port perlu saja | Sebagian | UFW allow port 5000 hanya dari `192.168.16.0/24` sudah aktif; perlu dicek rule untuk port 22 & 3306 (3306 seharusnya tidak ter-expose sama sekali ke luar `localhost`) |
-| Update & patch OS/paket ke versi aman | Sebagian | `apt update && apt upgrade` sudah dijalankan saat setup awal, perlu dijadwalkan ulang mendekati Minggu ke-9/11 |
-| Hapus akun/kredensial default | Belum | Perlu audit akun default MySQL & OS |
+| Kontrol | Status | Bukti Before | Bukti After |
+|---|---|---|---|
+| Nonaktifkan service/port yang tidak dipakai | Belum | ![before](evidence/b1-services-before.png) | ![after](evidence/b1-services-after.png) |
+| Firewall (UFW) whitelist port perlu saja + MySQL tidak ter-expose | Sebagian — UFW allow port 5000 hanya dari `192.168.16.0/24` sudah aktif; bind-address MySQL & status UFW lengkap perlu diverifikasi ulang | ![bind-address before](evidence/b2-mysql-bind-before.png) ![ufw status](evidence/b2-ufw-status.png) | ![scan after](evidence/b2-mysql-port-after.png) |
+| Update & patch OS/paket ke versi aman | Belum | ![before](evidence/b3-update-before.png) | ![after](evidence/b3-update-after.png) |
+| Hapus akun/kredensial default | Belum | ![before](evidence/b4-mysql-users-before.png) | ![after](evidence/b4-mysql-users-after.png) |
 
 ## C. Data & Application
 
@@ -34,9 +36,11 @@ Status: **Selesai** / **Sebagian** / **Belum**. Bukti before/after disimpan di `
 ## Ringkasan
 
 - **Selesai:** 3 kontrol
-- **Sebagian:** 3 kontrol
-- **Belum:** 5 kontrol (termasuk 1 kontrol yang sengaja dibiarkan rentan sebagai bagian skenario serangan)
+- **Sebagian:** 1 kontrol
+- **Belum:** 7 kontrol (termasuk 1 kontrol yang sengaja dibiarkan rentan sebagai bagian skenario serangan)
 
 **Catatan penting:** password hash user aplikasi (`users.password_hash`) sudah menggunakan bcrypt (bukan plaintext) sejak awal — bukan bagian checklist wajib di atas, tapi dicatat sebagai praktik baik tambahan.
+
+**TODO sebelum presentasi Minggu ke-9:** jalankan 8 kontrol Kategori A & B sesuai panduan command, taruh screenshot di `docs/blueteam/evidence/` sesuai nama file di `evidence/README.md`, lalu ubah status di atas jadi **Selesai**.
 
 Checklist ini akan diperbarui seiring progres menuju Minggu ke-11 (Vulnerability Assessment Report).
